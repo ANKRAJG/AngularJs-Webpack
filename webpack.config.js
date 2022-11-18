@@ -14,16 +14,16 @@ module.exports = {
   mode: "development",
   output: {
     filename: "[name]-bundle.js",
-    path: path.resolve(__dirname, "../dist"),
+    path: path.resolve(__dirname, "./src/dist"),
     publicPath: "/"
   },
   devServer: {
     port: 8080,
-    contentBase: "dist",
-    overlay: true,
-    stats: {
-      colors: true
-    }
+    // contentBase: "dist",
+    // overlay: true,
+    // stats: {
+    //   colors: true
+    // }
   },
   devtool: "source-map",
   module: {
@@ -81,8 +81,22 @@ module.exports = {
       {
         test: /\.html$/,
         use: [
-          { loader: "html-loader" }
-        ]
+              {
+                  loader: "html-loader"
+              }
+          ]
+      },
+      {
+        test: /\.html$/,
+        use: [
+              {
+                  loader: "file-loader",
+                  options: {
+                      name: 'views/[name].[ext]'
+                  }
+              }
+          ],
+          exclude: path.resolve(__dirname, 'src/html/index.html')
       },
       {
         test: /\.pug$/,
@@ -107,7 +121,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
       template: "./src/html/index.html",
-      title: "Webpack: AngularJS configuration"
+      title: "Webpack: AngularJS Configuration"
     })
   ]
 };

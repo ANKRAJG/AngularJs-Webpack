@@ -1,8 +1,8 @@
 require('../styles/main.css');
 require('../html/index.html');
 
-require('./views/index');
-require('./app/index');
+require('./app/app');
 require('./backend/index');
+require('./views/index');
 require('./controllers/index');
 require('./services/index')

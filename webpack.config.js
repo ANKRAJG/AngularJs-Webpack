@@ -122,6 +122,11 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: "./src/html/index.html",
       title: "Webpack: AngularJS Configuration"
+    }),
+    new webpack.ProvidePlugin({
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery'
     })
   ]
 };

@@ -47,6 +47,18 @@ module.exports = {
           ]
         },
         {
+          test: /\.html$/,
+          use: [
+                {
+                    loader: "file-loader",
+                    options: {
+                        name: 'views/[name].[ext]'
+                    }
+                }
+            ],
+            exclude: path.resolve(__dirname, 'src/html/index.html')
+        },
+        {
           test: /\.(jepeg|jpg|gif|png)$/,
           use: [
             {

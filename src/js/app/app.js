@@ -2,6 +2,11 @@ import angular from 'angular';
 import 'angular-route';
 import 'angular-mocks';
 
+import 'jquery';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap';
+
+
 angular.module('EventApp', ['ngRoute','ngMockE2E'])
 
 .filter ('customLowerCase', function () {

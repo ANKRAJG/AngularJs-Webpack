@@ -1,11 +1,11 @@
 # Webpack config for AngularJS
 
 > This repo is already configured for AngularJS framework. Supports preprocessor CSS languages:
-SASS, LESS, and STYLUS. Contains developer dev server that hard reloads, all necessary packages, 
-and HTML preprocessors like EJS, PUG, and Handlebars. 
+SASS, LESS, and STYLUS. Contains developer dev server that hard reloads, all necessary packages,
+and HTML preprocessors like EJS, PUG, and Handlebars.
 
 ## Dependencies
-* [GIT](https://git-scm.com/downloads) 
+* [GIT](https://git-scm.com/downloads)
 * [Node JS](https://nodejs.org/en/download/current/)
 * NPM (Node JS includes NPM)
 
@@ -25,7 +25,7 @@ npm install
 ```
 ##### Install with NPM
 ```bash
-yarn install 
+yarn install
 ```
 
 ## Run
@@ -93,7 +93,7 @@ Then you can open `src/html/index.[ejs|hbs|pug]` file and use your favorite prep
 
 This part discusses how to use CSS preprocessors
 
-Open `src/js/main.js` and find: 
+Open `src/js/main.js` and find:
 ```javascript
 require("../styles/main.css");
 ```
@@ -109,9 +109,9 @@ then change `main.css` to `main.styl`
 
 Open file `src/styles/main.[less|sass|styl]` and work with your favorite CSS preprocessor
 
-## Angular.js entry point 
+## Angular.js entry point
 
-Angular JS application files located in `src/js/app`. The `main.js` is the entry point for AngularJS app.
+Angular JS application files located in `src/app`. The `main.js` is the entry point for AngularJS app.
 
 ## License
 

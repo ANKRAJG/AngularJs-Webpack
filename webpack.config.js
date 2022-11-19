@@ -8,7 +8,7 @@ module.exports = {
       "babel-runtime/regenerator",
       "babel-register",
       "webpack-hot-middleware/client?reload=true",
-      "./src/js/main.js"
+      "./src/app/main.js"
     ]
   },
   mode: "development",
@@ -98,7 +98,7 @@ module.exports = {
                   }
               }
           ],
-          exclude: path.resolve(__dirname, 'src/html/index.html')
+          exclude: path.resolve(__dirname, 'src/index.html')
       },
       {
         test: /\.pug$/,
@@ -122,7 +122,7 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
-      template: "./src/html/index.html",
+      template: "./src/index.html",
       title: "Webpack: AngularJS Configuration"
     }),
     new webpack.ProvidePlugin({

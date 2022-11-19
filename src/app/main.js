@@ -1,7 +1,7 @@
 require('../styles/main.css');
-require('../html/index.html');
+require('../index.html');
 
-require('./app/app');
+require('./app');
 require('./backend/index');
 require('./views/index');
 require('./controllers/index');

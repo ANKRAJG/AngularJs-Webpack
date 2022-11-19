@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Webpack: AngularJS basic configuration",
   "repository": "https://github.com/DudkinOn/webpack-angularjs.git",
-  "main": "./src/js/main.js",
+  "main": "./src/app/main.js",
   "license": "MIT",
   "dependencies": {
     "ajv": "^6.12.6",

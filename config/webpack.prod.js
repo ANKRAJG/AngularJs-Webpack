@@ -8,7 +8,7 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 module.exports = {
 
     entry: {
-      main: ["./src/js/main.js"]
+      main: ["./src/app/main.js"]
     },
     mode: "production",
     output: {
@@ -56,7 +56,7 @@ module.exports = {
                     }
                 }
             ],
-            exclude: path.resolve(__dirname, 'src/html/index.html')
+            exclude: path.resolve(__dirname, 'src/index.html')
         },
         {
           test: /\.(jepeg|jpg|gif|png)$/,
@@ -86,9 +86,14 @@ module.exports = {
         }
       }),
       new HTMLWebpackPlugin({
-        template: "./src/html/index.html",
+        template: "./src/index.html",
         inject: true,
         title: "Webpack: AngularJS configuration"
+      }),
+      new webpack.ProvidePlugin({
+          jQuery: 'jquery',
+          $: 'jquery',
+          jquery: 'jquery'
       })
     ]
 

@@ -3,8 +3,8 @@ import 'angular-route';
 import 'angular-mocks';
 
 import 'jquery';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 angular.module('EventApp', ['ngRoute','ngMockE2E'])

@@ -18,12 +18,7 @@ module.exports = {
     publicPath: "/"
   },
   devServer: {
-    port: 8080,
-    // contentBase: "dist",
-    // overlay: true,
-    // stats: {
-    //   colors: true
-    // }
+    port: 8080
   },
   devtool: "source-map",
   module: {
@@ -38,8 +33,14 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" }
+          "style-loader",
+          "css-loader"
+          // {
+          //     loader: "file-loader",
+          //     options: {
+          //       name: "[name].[ext]"
+          //     }
+          // }
         ]
       },
       {

@@ -3,7 +3,7 @@
 (function () {
 	'use strict';
 
-angular.module('EventApp').controller('FormCtrl', FormCtrl);
+angular.module('EventsApp').controller('FormCtrl', FormCtrl);
 
     FormCtrl.$inject = ['EventFactory'];
 	function FormCtrl(EventFactory) {

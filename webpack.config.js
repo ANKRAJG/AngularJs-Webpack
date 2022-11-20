@@ -1,25 +1,30 @@
 const path = require("path");
 const webpack = require("webpack");
+const packageJson = require('./package.json');
 const HTMLWebpackPlugin = require("html-webpack-plugin");
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
 module.exports = {
   entry: {
     main: [
-      "babel-runtime/regenerator",
-      "babel-register",
-      "webpack-hot-middleware/client?reload=true",
-      "./src/app/main.js"
+      // "babel-runtime/regenerator",
+      // "babel-register",
+      // "webpack-hot-middleware/client?reload=true",
+      "./src/index.js"
     ]
   },
   mode: "development",
   output: {
     filename: "[name]-bundle.js",
     path: path.resolve(__dirname, "./src/dist"),
-    publicPath: "/"
+    publicPath: "http://localhost:8083/"
   },
   devServer: {
-    port: 8080,
-    historyApiFallback: true
+    port: 8083,
+    historyApiFallback: true,
+    headers: {
+        'Access-Control-Allow-Origin': '*'
+    }
   },
   devtool: "source-map",
   module: {
@@ -28,7 +33,13 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [
-          { loader: "babel-loader" }
+          {
+              loader: "babel-loader",
+              options: {
+                presets: ['babel-preset-env'],
+                plugins: ['babel-plugin-transform-runtime', 'syntax-dynamic-import'],
+              }
+          }
         ]
       },
       {
@@ -120,6 +131,14 @@ module.exports = {
     ]
   },
   plugins: [
+      new ModuleFederationPlugin({
+          name: 'events',
+          filename: 'remoteEntry.js',
+          exposes: {
+              './EventsApp': './src/app/bootstrap'
+          },
+          shared: packageJson.dependencies
+      }),
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
       template: "./src/index.html",

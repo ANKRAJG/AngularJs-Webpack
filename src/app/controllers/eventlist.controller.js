@@ -3,7 +3,7 @@
 (function () {
 	'use strict';
 
-angular.module('EventApp').controller('EventManagerCtrl', EventManagerCtrl);
+angular.module('EventsApp').controller('EventManagerCtrl', EventManagerCtrl);
 
     EventManagerCtrl.$inject = ['EventFactory', 'initialData'];
     function EventManagerCtrl(EventFactory, initialData) {

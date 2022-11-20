@@ -2,7 +2,7 @@
 (function () {
 	'use strict';
 
-    angular.module('EventApp').run(['$httpBackend', function($httpBackend) {
+    angular.module('EventsApp').run(['$httpBackend', function($httpBackend) {
         $httpBackend.whenGET(/views\/.*/).passThrough();
         $httpBackend.whenGET(/services\/.*/).passThrough();
         $httpBackend.whenGET(/backend\/.*/).passThrough();

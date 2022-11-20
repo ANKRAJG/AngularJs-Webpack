@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-    angular.module('EventApp').factory('EventFactory', EventFactory);
+    angular.module('EventsApp').factory('EventFactory', EventFactory);
 
     EventFactory.$inject = ['$http', '$q'];
     function EventFactory($http, $q) {

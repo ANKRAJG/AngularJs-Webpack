@@ -4,11 +4,9 @@ import 'angular-mocks';
 
 import 'jquery';
 import 'bootstrap/dist/js/bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-angular.module('EventApp', ['ngRoute','ngMockE2E'])
-
+angular.module('EventsApp', ['ngRoute','ngMockE2E'])
 .filter ('customLowerCase', function () {
 	  return function (item) {
 	  	 return item.toLowerCase();
@@ -38,3 +36,5 @@ angular.module('EventApp', ['ngRoute','ngMockE2E'])
 	   .otherwise({redirectTo:'/'});
        $locationProvider.html5Mode(true);
 }]);
+
+//angular.bootstrap(document, ['EventsApp']);

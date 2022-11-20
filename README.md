@@ -93,7 +93,7 @@ Then you can open `src/html/index.[ejs|hbs|pug]` file and use your favorite prep
 
 This part discusses how to use CSS preprocessors
 
-Open `src/js/main.js` and find:
+Open `src/app/bootstrap.js` and find:
 ```javascript
 require("../styles/main.css");
 ```
@@ -111,7 +111,7 @@ Open file `src/styles/main.[less|sass|styl]` and work with your favorite CSS pre
 
 ## Angular.js entry point
 
-Angular JS application files located in `src/app`. The `main.js` is the entry point for AngularJS app.
+Angular JS application files located in `src/app`. The `bootstrap.js` is the entry point for AngularJS app.
 
 ## License
 

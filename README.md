@@ -2,21 +2,6 @@
 
 > This repo is already configured for AngularJS framework.
 
-## Dependencies
-* [GIT](https://git-scm.com/downloads)
-* [Node JS](https://nodejs.org/en/download/current/)
-* NPM (Node JS includes NPM)
-
-## Install
-In your terminal type following commands:
-
-```bash
-git clone https://github.com/DudkinON/webpack-angularjs.git
-cd AngularJS-Webpack
-```
-
-then you need install packages:
-
 ##### Install with NPM
 ```bash
 npm install
@@ -37,10 +22,6 @@ npm run start
 server will run on [http://127.0.0.1:8083](http://127.0.0.1:8083)
 
 > Node: by default server uses port 8083, make sure that this port is free
-
-After server is running you will see:
-
-[![demo](https://github.com/DudkinON/webpack-angularjs/blob/master/demo.png?raw=true)](https://github.com/DudkinON/webpack-angularjs/blob/master/demo.png?raw=true)
 
 ## HTML preprocessors
 

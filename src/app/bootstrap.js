@@ -21,19 +21,24 @@ const changeBasePath = basePath => {
     document.getElementsByTagName('head')[0].appendChild(base);
 }
 
+function postRouteChange() {
+    // Moved these lines to app.js '$locationChangeSuccess' function
+    localStorage.setItem('previousUrl', window.location.pathname);
+    // After bootstraping angular app, changing base path back to '/' to again get back to react context
+    changeBasePath('/');
+}
+
 // Mount function to start up the app
 const mount = (el) => {
     changeBasePath('http://localhost:8083/');
     angular.bootstrap(el.childNodes[0], ['EventsApp']);
-    localStorage.setItem('previousUrl', window.location.pathname);
-
-    // After bootstraping angular app, changing base path back to '/' to again get back to react context
-    changeBasePath('/');
+    // postRouteChange();
 
     return {
         onParentNavigate(location) {
-            // Not a good solution as we are rebootstraoing again
-            if(localStorage.previousUrl !== window.location.pathname) {
+            // Not a good solution as we are rebootstraping again
+            var newPath = window.location.pathname;
+            if(localStorage.previousUrl !== newPath && localStorage.angularJsRoutes.indexOf(newPath) > -1) {
                 console.log('Container url changed');
                 changeBasePath('http://localhost:8083/');
 
@@ -44,10 +49,7 @@ const mount = (el) => {
                 newDiv.appendChild(ngView);
                 el.appendChild(newDiv);
                 angular.bootstrap(el.childNodes[0], ['EventsApp']);
-                localStorage.setItem('previousUrl', window.location.pathname);
-
-                // After bootstraping angular app, changing base path back to '/' to again get back to react context
-                changeBasePath('/');
+                // postRouteChange();
             }
         }
     }
@@ -55,10 +57,10 @@ const mount = (el) => {
 
 if (process.env.NODE_ENV === 'development' && location.origin === 'http://localhost:8083') {
     //const rootNode = document.getElementById('_angularjs-dev-root');
-    angular.bootstrap(document, ['EventsApp']);
     // if (rootNode) {
     //     mount(rootNode);
     // }
+    angular.bootstrap(document, ['EventsApp']);
 }
 
 export { mount };

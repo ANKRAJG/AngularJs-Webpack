@@ -5,12 +5,11 @@
 
 angular.module('EventsApp').controller('FormCtrl', FormCtrl);
 
-    FormCtrl.$inject = ['EventFactory'];
-	function FormCtrl(EventFactory) {
+    FormCtrl.$inject = ['EventFactory', '$location'];
+	function FormCtrl(EventFactory, $location) {
 
         var self = this;
         this.eventForm = {};
-        //this.eventForm.date = new Date(2016,0,1);
         this.categories = [{
             id: 1,
             name: 'Music'
@@ -36,6 +35,22 @@ angular.module('EventsApp').controller('FormCtrl', FormCtrl);
                 alert('An error occurred ' + error.statusText);
             });
         }
+
+		const changeBasePath = basePath => {
+			var prevBase = document.querySelector('base');
+			if(prevBase) {
+				prevBase.remove();
+			}
+			var base = document.createElement('base');
+			base.href = basePath;
+			document.getElementsByTagName('head')[0].appendChild(base);
+		}
+
+		this.gotoDetails = function() {
+			changeBasePath('http://localhost:8083/');
+			$location.path('/event-details');
+        }
+
 
     }
 })();

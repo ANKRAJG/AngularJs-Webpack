@@ -34,11 +34,39 @@ angular.module('EventsApp', ['ngRoute','ngMockE2E'])
     	   	}
        })
 	   .when('/event-details', {
-		   templateUrl: 'views/event-details.html',
-		   controller: 'EventDetailsCtrl',
+		   templateUrl: 'views/event-details.html'
 	  })
 	   .otherwise({redirectTo:'/'});
        $locationProvider.html5Mode(true);
+}])
+
+.run(['$rootScope', '$timeout', '$route', function($rootScope, $timeout, $route) {
+	const changeBasePath = basePath => {
+		var prevBase = document.querySelector('base');
+		if(prevBase) {
+			prevBase.remove();
+		}
+		var base = document.createElement('base');
+		base.href = basePath;
+		document.getElementsByTagName('head')[0].appendChild(base);
+	}
+
+	var allRoutes = [];
+	for (const property in $route.routes) {
+		if($route.routes.hasOwnProperty(property)) {
+			allRoutes.push(property);
+		}
+	}
+	console.log('routes = ', allRoutes);
+	localStorage.setItem('angularJsRoutes', allRoutes);
+
+	$rootScope.$on('$locationChangeSuccess', function (event, next, current) {
+		$timeout(function() {
+			localStorage.setItem('previousUrl', window.location.pathname);
+			// After bootstraping angular app, changing base path back to '/' to again get back to react context
+			changeBasePath('/');
+		}, 10);
+	});
 }]);
 
 //angular.bootstrap(document, ['EventsApp']);

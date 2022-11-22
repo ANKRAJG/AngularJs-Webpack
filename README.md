@@ -2,7 +2,7 @@
 
 > This repo is already configured for AngularJS framework.
 
-# NOTE: When using it as a micro-frontend to another container App:
+#### NOTE: When using it as a micro-frontend to another container App
 ```bash
 1. We can successfully mount this AngularJs App to any container App of any tech stack.
 The code for which is present inside `src/app/bootstrap.js` file where we first need to set the base url of the App to this AngularJS App origin.

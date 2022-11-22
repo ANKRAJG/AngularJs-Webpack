@@ -106,7 +106,7 @@
         //update function
          $httpBackend.whenPOST('api/events/update').respond(function(method, url, data) {
               var evt= angular.fromJson(data);
-              for(i=0; i < events.length; i++) {
+              for(var i=0; i < events.length; i++) {
 
                  if(events[i].id == evt.id) {
                     events[i] = evt;
@@ -141,7 +141,7 @@
                 return [404, {}, {},'Crazy Delete Error'];
             }
 
-            for(i=0; i<events.length; i++) {
+            for(var i=0; i<events.length; i++) {
                 if(events[i].id === eventToDelete.id) {
                    events.splice(i,1);
                 }

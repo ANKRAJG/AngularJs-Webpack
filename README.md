@@ -2,15 +2,20 @@
 
 > This repo is already configured for AngularJS framework.
 
+
 #### NOTE: When using it as a micro-frontend to another container App
 ```bash
 1. We can successfully mount this AngularJs App to any container App of any tech stack.
-The code for which is present inside `src/app/bootstrap.js` file where we first need to set the base url of the App to this AngularJS App origin.
-In this App case, its localhost:8083. In prod/test environment, corresponding domain origin needs to be added there.
+   The code for which is present inside "src/app/bootstrap.js" and module-federation
+   configurations is present inside "webpack.config.js" file where we first need to set the
+   base url of the App to this AngularJS App origin. In this App case, its localhost:8083.
+   In prod/test environment, corresponding domain origin needs to be added there.
 
-2. In this angularJs App, we should navigate to different routes programatically. Omit the use of ng-href from html, as that wont work in MF.
+2. In this angularJs App, we should navigate to different routes programatically. Omit the use
+   of ng-href from html, as that wont work in MF.
    Also, while doing programatic route change, base url needs to be changed first.
 ```
+
 
 ##### Install with NPM
 ```bash

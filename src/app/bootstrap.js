@@ -12,16 +12,16 @@ require('./services/index')
 // angular.module('EventsApp', ['ngRoute','ngMockE2E']);
 
 const changeBasePath = basePath => {
-    var prevBase = document.querySelector('base');
+    const prevBase = document.querySelector('base');
     if(prevBase) {
         prevBase.remove();
     }
-    var base = document.createElement('base');
+    const base = document.createElement('base');
     base.href = basePath;
     document.getElementsByTagName('head')[0].appendChild(base);
 }
 
-function postRouteChange() {
+const postRouteChange = () => {
     // Moved these lines to app.js '$locationChangeSuccess' function
     localStorage.setItem('previousUrl', window.location.pathname);
     // After bootstraping angular app, changing base path back to '/' to again get back to react context

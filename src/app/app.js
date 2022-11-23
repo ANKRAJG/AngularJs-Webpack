@@ -42,11 +42,11 @@ angular.module('EventsApp', ['ngRoute','ngMockE2E'])
 
 .run(['$rootScope', '$timeout', '$route', function($rootScope, $timeout, $route) {
 	const changeBasePath = basePath => {
-		var prevBase = document.querySelector('base');
+		const prevBase = document.querySelector('base');
 		if(prevBase) {
 			prevBase.remove();
 		}
-		var base = document.createElement('base');
+		const base = document.createElement('base');
 		base.href = basePath;
 		document.getElementsByTagName('head')[0].appendChild(base);
 	}
@@ -57,7 +57,7 @@ angular.module('EventsApp', ['ngRoute','ngMockE2E'])
 			allRoutes.push(property);
 		}
 	}
-	console.log('routes = ', allRoutes);
+	// console.log('routes = ', allRoutes);
 	localStorage.setItem('angularJsRoutes', allRoutes);
 
 	$rootScope.$on('$locationChangeSuccess', function (event, next, current) {
@@ -68,5 +68,3 @@ angular.module('EventsApp', ['ngRoute','ngMockE2E'])
 		}, 0);
 	});
 }]);
-
-//angular.bootstrap(document, ['EventsApp']);

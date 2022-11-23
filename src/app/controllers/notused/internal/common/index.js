@@ -1,0 +1,15 @@
+require('./aboutbox.controller');
+require('./confirm.controller');
+require('./missingdetails.controller');
+require('./mysubscriptionpopup.controller');
+require('./pype.excelviewer.controller');
+require('./sidebar.controller');
+require('./aboutbox.controller');
+require('./ssocallback.controller');
+require('./ssouseralert.controller');
+require('./switchcompany.controller');
+require('./topbanner.controller');
+require('./topbanner.nonsecure.controller');
+require('./trialinfopopup.controller');
+require('./unauthorized.controller');
+require('./upgradetoplans.controller');

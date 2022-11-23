@@ -1,0 +1,1 @@
+require('./checkemail.controller');

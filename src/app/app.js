@@ -65,7 +65,7 @@ angular.module('EventsApp', ['ngRoute','ngMockE2E'])
 			localStorage.setItem('previousUrl', window.location.pathname);
 			// After bootstraping angular app, changing base path back to '/' to again get back to react context
 			changeBasePath('/');
-		}, 10);
+		}, 0);
 	});
 }]);
 

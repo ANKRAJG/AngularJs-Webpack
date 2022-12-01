@@ -36,18 +36,8 @@ angular.module('EventsApp').controller('FormCtrl', FormCtrl);
             });
         }
 
-		const changeBasePath = basePath => {
-			var prevBase = document.querySelector('base');
-			if(prevBase) {
-				prevBase.remove();
-			}
-			var base = document.createElement('base');
-			base.href = basePath;
-			document.getElementsByTagName('head')[0].appendChild(base);
-		}
-
 		this.gotoDetails = function() {
-			changeBasePath('http://localhost:8083/');
+			EventFactory.changeBasePath('http://localhost:8083/');
 			$location.path('/event-details');
         }
 

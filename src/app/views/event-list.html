@@ -1,4 +1,4 @@
-<div class="col-md-12 col-sm-12 col-lg-12">
+<div id="event-list-wrapper" class="col-md-12 col-sm-12 col-lg-12">
     <div>
         <span>Search: </span> <input type="text" ng-model="search.$">
         <span>Search by Event Name:</span>  <input type="text" ng-model="search.name">
@@ -48,10 +48,12 @@
                 <td   ng-show="managerCtl.edit[event.id]"><input type="text" ng-model="event.date"></td>
                 <td   ng-show="managerCtl.edit[event.id]"><input type="text" ng-model="event.price"></td>
                 <td  ng-show="managerCtl.edit[event.id]">
-                    <button class="btn btn-primary"  ng-click="managerCtl.update(event);managerCtl.edit[event.id] = !managerCtl.edit[event.id]"> Save </button>
-                    <button class="btn btn-warning"  ng-click="managerCtl.edit[event.id] = !managerCtl.edit[event.id]"> Undo </button>
+                    <button class="btn btn-primary" ng-click="managerCtl.update(event);managerCtl.edit[event.id] = !managerCtl.edit[event.id]"> Save </button>
+                    <button class="btn btn-warning" ng-click="managerCtl.edit[event.id] = !managerCtl.edit[event.id]"> Undo </button>
                 </td>
             </tr>
         </tbody>
     </table>
+    <br>
+    <div><a class="route-link" ng-click="managerCtl.signup()">Sign Up</a></div>
 </div>

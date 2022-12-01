@@ -30,3 +30,7 @@ h1 {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
+
+.route-link {
+    cursor: pointer;
+}

@@ -35,7 +35,8 @@ angular.module('EventsApp', ['ngRoute','ngMockE2E'])
        })
 	   .when('/event-details', {
 		   templateUrl: 'views/event-details.html'
-	  })
+	   })
+	   .when('/auth/signup', {})
 	   .otherwise({redirectTo:'/'});
        $locationProvider.html5Mode(true);
 }])

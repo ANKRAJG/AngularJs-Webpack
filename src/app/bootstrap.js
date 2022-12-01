@@ -28,17 +28,30 @@ const postRouteChange = () => {
     changeBasePath('/');
 }
 
+const checkForAnyContainerNavigation = (onNavigate, el) => {
+    if(onNavigate) {
+        var scope = angular.element(el.childNodes[0]).scope();
+        scope.$on('getRouteToContainer', function(event, route) {
+            console.log('route = ', route);
+            onNavigate({ pathname: route });
+        });
+    }
+}
+
 // Mount function to start up the app
-const mount = (el) => {
+const mount = (el, { onNavigate }) => {
     changeBasePath('http://localhost:8083/');
     angular.bootstrap(el.childNodes[0], ['EventsApp']);
     // postRouteChange();
+    checkForAnyContainerNavigation(onNavigate, el);
 
     return {
         onParentNavigate(location) {
             // Not a good solution as we are rebootstraping again
             var newPath = window.location.pathname;
-            if(localStorage.previousUrl !== newPath && localStorage.angularJsRoutes.indexOf(newPath) > -1) {
+            var excludedRoutes = ['/auth/signup'];
+            if(localStorage.previousUrl !== newPath &&
+                (localStorage.angularJsRoutes.indexOf(newPath) > -1 && excludedRoutes.indexOf(newPath) <= -1)) {
                 console.log('Container url changed');
                 changeBasePath('http://localhost:8083/');
 
@@ -49,8 +62,10 @@ const mount = (el) => {
                 newDiv.appendChild(ngView);
                 el.appendChild(newDiv);
                 angular.bootstrap(el.childNodes[0], ['EventsApp']);
-                // postRouteChange();
+                //postRouteChange();
             }
+
+            checkForAnyContainerNavigation(onNavigate, el);
         }
     }
 }

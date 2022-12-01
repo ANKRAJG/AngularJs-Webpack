@@ -28,6 +28,17 @@
              	return data;
              }, function(error) {return false;});
         }
+
+		eventFactory.changeBasePath = basePath => {
+			let prevBase = document.querySelector('base');
+			if(prevBase) {
+				prevBase.remove();
+			}
+			let base = document.createElement('base');
+			base.href = basePath;
+			document.getElementsByTagName('head')[0].appendChild(base);
+		}
+		
         return eventFactory;
 
     }

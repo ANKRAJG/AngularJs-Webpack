@@ -5,8 +5,8 @@
 
 angular.module('EventsApp').controller('EventManagerCtrl', EventManagerCtrl);
 
-    EventManagerCtrl.$inject = ['EventFactory', 'initialData'];
-    function EventManagerCtrl(EventFactory, initialData) {
+    EventManagerCtrl.$inject = ['EventFactory', 'initialData', '$scope'];
+    function EventManagerCtrl(EventFactory, initialData, $scope) {
         var self = this;
         self.edit = {};
         self.eventList = initialData.data;
@@ -26,6 +26,10 @@ angular.module('EventsApp').controller('EventManagerCtrl', EventManagerCtrl);
                  alert('An error occurred');
               });
         }
+
+		self.signup = function() {
+			$scope.$emit('getRouteToContainer', '/auth/signup');
+		}
 
     }
 })();
